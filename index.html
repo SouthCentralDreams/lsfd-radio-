@@ -202,7 +202,7 @@ const statusRows = UNIT_STATUSES.map(([status, explanation]) => {
 });
 function updateUnitStatuses() {
   const unit = document.getElementById('unit-name').value.trim().replace(/\s+/g, ' ').replace(/[,;]+$/, '').trim();
-  statusRows.forEach(({status, text}) => text.value = unit ? `${unit}, ${status.toLowerCase()}` : status.toLowerCase());
+  statusRows.forEach(({status, text}) => text.value = unit ? `${unit}, ${status.toLowerCase()}.` : `${status.toLowerCase()}.`);
   document.getElementById('unit-copy-status').textContent = '';
 }
 document.getElementById('unit-name').addEventListener('input', updateUnitStatuses);
