@@ -28,3 +28,6 @@ The footer retains Los Santos Fire Department branding and includes “TexAyXs's
 
 Unofficial fan tool. Vitals and treatments are fictional roleplay text, not clinical guidance.
 
+
+## Unit status tab
+Choose **Unit status**, enter a callsign once, and click Copy beside any of the eight statuses. The copied text contains only the unit and status, for example `RA-1, Enroute`. Descriptions are hints only. A blank callsign copies the status alone. You can also select each radio line manually. Switching tabs preserves the patient report and unit field. Upload `status.js` along with the other site files.
