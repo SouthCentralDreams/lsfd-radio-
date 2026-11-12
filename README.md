@@ -17,7 +17,7 @@ Open `index.html` in your browser. Fill in any details, review the preview and c
 - Add/remove patients. Empty patient cards are excluded, and included patients are numbered in order when there is more than one.
 - Gender options: Female, Male, Non binary, or omitted.
 - Vitals and treatment support editable presets and free text. Edit `PRESETS` in `app.js` to customize menus.
-- All four supplied vitals profiles are included verbatim, plus short `WNL`.
+- All four supplied vitals profiles appear in the preset menu. Their labels (WNL, ELEVATED, LOW, ADRENELINE RESPONSE) are menu-only; selecting a profile inserts only the measurements. The separate short `WNL` option still inserts `WNL`.
 - ETA can be free text or a preset. “at your doors now” is output directly.
 - Clear all resets every field, including report type and gender.
 - Load two-patient example demonstrates a Trauma report without an ETA.
@@ -31,3 +31,4 @@ Unofficial fan tool. Vitals and treatments are fictional roleplay text, not clin
 
 ## Unit status tab
 Choose **Unit status**, enter a callsign once, and click Copy beside any of the eight statuses. The copied text contains only the unit and status, for example `RA-1, Enroute`. Descriptions are hints only. A blank callsign copies the status alone. You can also select each radio line manually. Switching tabs preserves the patient report and unit field. Upload `status.js` along with the other site files.
+

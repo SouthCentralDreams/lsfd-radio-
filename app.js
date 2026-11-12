@@ -9,6 +9,8 @@ const PRESETS = {
   ],
   treatment: ['bandaging around the head, minor bleeding controlled, splint applied, 500 MG of Acetaminophen given orally for pain', 'SMR protocols taken', 'wound cleaning and dressing', 'direct pressure and bandaging', 'splinting and immobilization']
 };
+// Labels stay in the menu; only the value is inserted into the editable field.
+const presetValue = (kind, label) => kind === 'vitals' && label.includes(': ') ? label.slice(label.indexOf(': ') + 2) : label;
 const $ = id => document.getElementById(id);
 let nextId = 0;
 const cards = () => [...$('patients').querySelectorAll('.patient-card')];
@@ -29,13 +31,13 @@ function addPatient(values = {}) {
     field.value = values[field.dataset.field] || '';
     field.addEventListener('input', () => {
       const menu = card.querySelector(`[data-preset="${field.dataset.field}"]`);
-      if (menu) menu.value = PRESETS[field.dataset.field].includes(field.value) ? field.value : '';
+      if (menu) menu.value = PRESETS[field.dataset.field].some(label => presetValue(field.dataset.field, label) === field.value) ? field.value : '';
       update();
     });
   });
   card.querySelectorAll('[data-preset]').forEach(menu => {
     menu.add(new Option('Choose a preset…', ''));
-    PRESETS[menu.dataset.preset].forEach(value => menu.add(new Option(value,value)));
+    PRESETS[menu.dataset.preset].forEach(label => menu.add(new Option(label, presetValue(menu.dataset.preset, label))));
     menu.value = values[menu.dataset.preset] || '';
     menu.addEventListener('change', () => { if(menu.value) card.querySelector(`[data-field="${menu.dataset.preset}"]`).value = menu.value; update(); });
   });
@@ -69,3 +71,4 @@ $('copy').addEventListener('click', async () => {
   }
 });
 addPatient();
+
